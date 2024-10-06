@@ -1,3 +1,7 @@
+This template was taken from BootstrapMade and modified as needed with respect of author's rights.
+
+__________________________________________________________
+
 Thanks for downloading this template!
 
 Template Name: MyResume
