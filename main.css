@@ -200,6 +200,7 @@ h6 {
 .navmenu li:hover>a {
   color: var(--contrast-color);
   background: var(--nav-hover-color);
+ /* overflow: visible; */ /* Uncomment this line to show the full text on hover */
 }
 
 .navmenu a:hover,
@@ -1603,6 +1604,7 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+
 
 /*--------------------------------------------------------------
 # Starter Section Section
