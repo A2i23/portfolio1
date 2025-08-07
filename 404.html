@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Page Not Found</title>
+  <link rel="stylesheet" href="404.css" />
+</head>
+<body>
+  <div class="terminal" id="terminal">
+    <p>booting up portfolio...</p>
+    <p>checking file path...</p>
+    <p>OOPS! ERROR 404: page not found</p>
+    
+    <p><span class="blink">▍</span></p>
+
+    
+  </div>
+
+  <p>Do not hesitate to contact with me at <a href="mailto:azizsami1957@gmail.com" class="link">azizsami1957@gmail.com</a></p>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const lines = [
+      "Initiating fallback protocol...",
+      "Trying to reroute...",
+      "Redirect failed.",
+      "",
+      "You seem to be lost in the matrix.",
+      "Press <span class='terminal-key'>[H]</span> to go home or <span class='terminal-key'>[R]</span> to view resume."
+    ];
+
+    let i = 0;
+    function typeLine() {
+      if (i < lines.length) {
+        const line = document.createElement("p");
+        line.innerHTML = lines[i];
+        terminal.insertBefore(line, terminal.lastElementChild);
+        i++;
+        setTimeout(typeLine, 700);
+      }
+    }
+
+    setTimeout(typeLine, 1500);
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key.toLowerCase() === "h") {
+        window.location.href = "/";
+      } else if (e.key.toLowerCase() === "r") {
+        window.location.href = "/resume";
+      }
+    });
+
+    // Add click functionality to terminal keys after they appear
+    setTimeout(() => {
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('terminal-key')) {
+          const key = e.target.textContent.toLowerCase().replace(/[\[\]]/g, '');
+          if (key === 'h') {
+            window.location.href = "/";
+          } else if (key === 'r') {
+            window.location.href = "/resume";
+          }
+        }
+      });
+    }, 3000);
+  </script>
+</body>
+</html>
