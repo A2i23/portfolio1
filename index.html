@@ -27,6 +27,267 @@
   <!-- Main CSS File -->
   <link href="main.css" rel="stylesheet">
 
+  <!-- Dark Mode Styles -->
+  <style>
+    /* Dark Mode Variables */
+    :root {
+      --dark-primary: #1a2332;
+      --dark-secondary: #2d3748;
+      --dark-accent: #4299e1;
+      --dark-text: #e2e8f0;
+      --dark-text-secondary: #a0aec0;
+      --dark-background: #0f1419;
+      --dark-surface: #1e2532;
+      --dark-border: #2d3748;
+    }
+
+    /* Dark Mode Toggle Button */
+    .dark-mode-toggle {
+      color: var(--nav-color);
+      font-family: var(--nav-font);
+      display: flex;
+      align-items: center;
+      padding: 10px 18px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      border-radius: 50px;
+      background-color: var(--background-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 56px;
+      width: 100%;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode-toggle:hover {
+      color: var(--contrast-color);
+      background: linear-gradient(135deg, var(--nav-hover-color) 0%, #0056b3 100%);
+      border: 1px solid var(--nav-hover-color);
+      box-shadow: 0 6px 20px rgba(5, 99, 187, 0.3);
+    }
+
+    .dark-mode-toggle i {
+      font-size: 20px;
+    }
+
+    .dark-mode-toggle span {
+      padding: 0 5px 0 7px;
+    }
+
+    @media (min-width: 992px) {
+      .dark-mode-toggle {
+        max-width: 56px;
+      }
+
+      .dark-mode-toggle span {
+        display: none;
+      }
+    }
+
+    .dark-mode-toggle:hover {
+      max-width: 100%;
+    }
+
+    .dark-mode-toggle:hover span {
+      display: block;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      --background-color: var(--dark-background);
+      --default-color: var(--dark-text);
+      --heading-color: var(--dark-text);
+      --accent-color: var(--dark-accent);
+      --nav-color: var(--dark-text-secondary);
+      --nav-hover-color: var(--dark-accent);
+      --header-background-color: transparent;
+      background-color: var(--dark-background);
+      color: var(--dark-text);
+    }
+
+    body.dark-mode .header {
+      background-color: transparent;
+      backdrop-filter: blur(8px);
+      border-right: 1px solid rgba(45, 55, 72, 0.3);
+    }
+
+    body.dark-mode .navmenu a {
+      background: rgba(45, 55, 72, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--dark-border);
+      color: var(--dark-text-secondary);
+    }
+
+    body.dark-mode .navmenu a:hover,
+    body.dark-mode .navmenu .active {
+      background: linear-gradient(135deg, var(--dark-accent) 0%, #2b6cb0 100%);
+      border: 1px solid var(--dark-accent);
+      color: white;
+      box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
+    }
+
+    body.dark-mode .hero::before {
+      background: color-mix(in srgb, var(--dark-background), transparent 20%);
+    }
+
+    body.dark-mode .section-title h2::after {
+      background: var(--dark-accent);
+    }
+
+    /* Enhanced Skills Table Styles */
+    .skills .table {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: none;
+    }
+
+    .skills .table th {
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      padding: 20px 15px;
+      font-size: 14px;
+    }
+
+    .skills .table td {
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 18px 15px;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .skills .table tbody tr:hover td {
+      background: rgba(5, 99, 187, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .skills .table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .skills .table i {
+      margin: 0 8px;
+      font-size: 18px;
+      vertical-align: middle;
+    }
+
+    /* Enhanced Navbar Styles */
+    .navmenu a,
+    .navmenu a:focus {
+      background-color: var(--background-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navmenu a:hover,
+    .navmenu .active,
+    .navmenu .active:focus,
+    .navmenu li:hover>a {
+      background: linear-gradient(135deg, var(--nav-hover-color) 0%, #0056b3 100%);
+      border: 1px solid var(--nav-hover-color);
+      box-shadow: 0 6px 20px rgba(5, 99, 187, 0.3);
+    }
+
+    /* Dark Mode Enhanced Styles */
+    body.dark-mode .skills .table {
+      background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-secondary) 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-mode .skills .table th {
+      background: linear-gradient(135deg, var(--dark-accent) 0%, #2b6cb0 100%);
+      color: white;
+    }
+
+    body.dark-mode .skills .table td {
+      border-bottom: 1px solid var(--dark-border);
+      color: var(--dark-text);
+      background: var(--dark-surface);
+    }
+
+    body.dark-mode .skills .table tbody tr:hover td {
+      background: rgba(66, 153, 225, 0.1);
+      color: var(--dark-text);
+    }
+
+    body.dark-mode .navmenu a,
+    body.dark-mode .navmenu a:focus,
+    body.dark-mode .dark-mode-toggle {
+      background-color: rgba(15, 20, 25, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--dark-border);
+      color: var(--dark-text-secondary);
+    }
+
+    body.dark-mode .navmenu a:hover,
+    body.dark-mode .navmenu .active,
+    body.dark-mode .navmenu .active:focus,
+    body.dark-mode .navmenu li:hover>a,
+    body.dark-mode .dark-mode-toggle:hover {
+      background: linear-gradient(135deg, var(--dark-accent) 0%, #2b6cb0 100%);
+      border: 1px solid var(--dark-accent);
+      color: white;
+      box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
+    }
+
+    body.dark-mode .resume .resume-item {
+      border-left-color: var(--dark-accent);
+    }
+
+    body.dark-mode .resume .resume-item::before {
+      background: var(--dark-background);
+      border-color: var(--dark-accent);
+    }
+
+    body.dark-mode .download-button .docs {
+      color: var(--dark-text-secondary) !important;
+    }
+
+    body.dark-mode .download-button:hover .docs {
+      color: var(--dark-text) !important;
+    }
+
+    body.dark-mode .portfolio .portfolio-item .portfolio-info {
+      background: var(--dark-surface);
+      color: var(--dark-text);
+    }
+
+    body.dark-mode .services .service-item {
+      background: var(--dark-surface);
+      box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-mode .services .service-item:hover {
+      box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    body.dark-mode .footer {
+      background-color: var(--dark-primary);
+      color: var(--dark-text);
+    }
+
+    body.dark-mode .scroll-top {
+      background-color: var(--dark-accent);
+    }
+
+    body.dark-mode .alert-warning {
+      background-color: var(--dark-secondary);
+      border-color: var(--dark-accent);
+      color: var(--dark-text);
+    }
+
+  </style>
+
 
   <!-- Programming languages icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -51,9 +312,16 @@
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
        <!--<li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li> --> 
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
-        <li><a href="#Courses&Competitions"><i class="bi bi-award marquee"></i><span>Courses&Competitions </span></a></li>
+       <!--<li><a href="#Courses&Competitions"><i class="bi bi-award marquee"></i><span>Courses&Competitions </span></a></li>-->
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
+        <!-- Dark Mode Toggle Button -->
+        <li>
+          <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+            <i class="bi bi-moon-fill navicon" id="dark-mode-icon"></i>
+            <span id="dark-mode-text">Dark Mode</span>
+          </button>
+        </li>
 
        <!--<li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li> --> 
       </ul>
@@ -230,7 +498,7 @@
                <div class="resume-item">
                 <h4>Project Manager </h4>
                 <h5> 04/2025 - Now</h5>
-                <p ><em><a href="https://f4h.com.sa/" style="color: rgb(0, 0, 0);">Fantastic Hosting for IT solutions <img src="assets\img\f4h.jpg" alt="KFU Icon" style="height: 1.3em; vertical-align: middle;"> </a></em>  </p>
+                <p ><em><a href="https://f4h.com.sa/" style="color: rgb(255, 255, 255);">Fantastic Hosting for IT solutions <img src="assets\img\F4H_logo_bg_removed .svg" alt="F4H Icon" style="height: 1.3em; vertical-align: middle;"> </a></em>  </p>
                 <ul>
                   <li>Leading a team of developers</li>
                   <li>Managing projects from inception to completion</li>
@@ -253,6 +521,8 @@
                 <h4>Software Engineer - Co-op </h4>
                 <h5> 05/2023 - 07/2023</h5>
                 <p><em>CashPoint Information Technology, Alhasa </em></p>
+                                <p ><em>CashPoint Information Technology <img src="assets\img\CashPoint-removebg-preview.png" alt="CP Icon" style="height: 1.8em; vertical-align: middle;"> </a></em>  </p>
+
                 <ul>
                   <li>Leading four teams</li>
                   <li>Analysis clint system requirements </li>
@@ -280,7 +550,10 @@
      <!--<button class="download-button" >
       <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line y2="13" x2="8" y1="13" x1="16"></line><line y2="17" x2="8" y1="17" x1="16"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Download resume</div>
       <div class="download">
-        <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line y2="3" x2="12" y1="15" x1="12"></line></svg>
+        <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line y2="3" x2="12" y1="15" x1="12"></line>
+                  </svg>
       </div>
     </button> --> 
 
@@ -296,7 +569,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
       
-        <p>Let me show you some of my projects  <br> My latest projects focus on AI & data science.
+        <p>Let me show you some of my projects  <br> My latest projects focus on AI & data.
 
         </p>
         <br>
@@ -314,7 +587,7 @@
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
             <li data-filter=".filter-app">App</li>
-            
+            <li data-filter=".filter-pm">PM</li>
             <li data-filter=".filter-branding">Web</li>
           </ul><!-- End Portfolio Filters -->
 
@@ -332,7 +605,7 @@
 
            
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding filter-pm">
               <img src="assets\img\GPC website.png" class="img-fluid" alt="" >
               <div class="portfolio-info">
                 <h4>GPC</h4>
@@ -342,11 +615,11 @@
             </div><!-- End Portfolio Item -->
 
            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
+              <img src="assets img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 2</h4>
                 <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="assets img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div> End Portfolio Item --> 
@@ -354,7 +627,7 @@
 
            
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding filter-pm">
               <img src="assets\img\Aquaponic website.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Aquaponic website</h4>
@@ -365,28 +638,28 @@
             </div><!-- End Portfolio Item -->
              <!--
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+              <img src="assets img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 3</h4>
                 <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="assets img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+              <img src="assets img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Product 3</h4>
                 <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="assets img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
 
           -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding filter-pm">
               <img src="assets\img\DataGPT.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>DataGPT</h4>
@@ -506,9 +779,9 @@
    
     
         </div>
-
-      </div>
-
+          
+      </div> 
+      
     </section><!-- /Contact Section -->
 
   </main>
@@ -561,6 +834,67 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Dark Mode JavaScript -->
+  <script>
+    // Dark Mode Toggle Functionality
+    function toggleDarkMode() {
+      const body = document.body;
+      const icon = document.getElementById('dark-mode-icon');
+      const text = document.getElementById('dark-mode-text');
+      
+      body.classList.toggle('dark-mode');
+      
+      // Update icon and text
+      if (body.classList.contains('dark-mode')) {
+        icon.className = 'bi bi-sun-fill navicon';
+        text.textContent = 'Light Mode';
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        icon.className = 'bi bi-moon-fill navicon';
+        text.textContent = 'Dark Mode';
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    }
+
+    // Check for saved dark mode preference or default to light mode
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkMode = localStorage.getItem('darkMode');
+      const body = document.body;
+      const icon = document.getElementById('dark-mode-icon');
+      const text = document.getElementById('dark-mode-text');
+      
+      if (darkMode === 'enabled') {
+        body.classList.add('dark-mode');
+        icon.className = 'bi bi-sun-fill navicon';
+        text.textContent = 'Light Mode';
+      } else {
+        icon.className = 'bi bi-moon-fill navicon';
+        text.textContent = 'Dark Mode';
+      }
+    });
+
+    // Update download button colors in dark mode
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            const downloadDiv = document.querySelector('.download');
+            if (downloadDiv && document.body.classList.contains('dark-mode')) {
+              downloadDiv.style.backgroundColor = 'var(--dark-accent)';
+            } else if (downloadDiv) {
+              downloadDiv.style.backgroundColor = '#45505b';
+            }
+          }
+        });
+      });
+      
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+    });
+  </script>
 
 </body>
 
